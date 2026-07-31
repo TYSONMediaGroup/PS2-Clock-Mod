@@ -24,9 +24,9 @@ local cutoff = love.graphics.newShader([[
 ]])
 
 local horizontal_blur = love.graphics.newShader([[
-	extern float size = 1;
-	extern int samples = 4;
-	extern float[] weights = {.2,.2,.2,.2,.2};
+	extern float size;
+	extern int samples;
+	extern float weights[5];
 
 	vec4 effect(vec4 color, Image tex, vec2 texture_coords, vec2 screen_coords) {
 		vec4 source = Texel(tex, texture_coords);
@@ -47,9 +47,9 @@ local horizontal_blur = love.graphics.newShader([[
 ]])
 
 local vertical_blur = love.graphics.newShader([[
-	extern float size = 1;
-	extern int samples = 4;
-	extern float[] weights = {.2,.2,.2,.2,.2};
+	extern float size;
+	extern int samples;
+	extern float weights[5];
 
 	vec4 effect(vec4 color, Image tex, vec2 texture_coords, vec2 screen_coords) {
 		vec4 source = Texel(tex, texture_coords);
